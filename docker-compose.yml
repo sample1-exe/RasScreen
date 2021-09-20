@@ -1,0 +1,38 @@
+version: '3'
+
+services: 
+    rasscreen_db:
+        build: ./db
+        tty: true
+        ports: 
+            - "3306:3306"
+        container_name: RasScreen_db
+        volumes: 
+            - ./db/mysql-data:/var/lib/mysql
+        environment: 
+            MYSQL_ROOT_PASSWORD: RasScreen1!
+            MYSQL_DATABASE: rasscreen
+            MYSQL_USER: tmcit
+            MYSQL_PASSWORD: tmcit1!
+        user: 1000:1000
+
+    rasscreen_golang:
+        build: ./go
+        tty: true
+        ports:
+            - "8080:8080"
+        container_name: RasScreen_golang
+        links:
+            - rasscreen_db
+            - rasscreen_react
+        volumes:
+            - ./go:/go/src
+            
+    rasscreen_react:
+        build: ./react
+        tty: true
+        ports: 
+            - "3000:3000"
+        container_name: RasScreen_react
+        volumes: 
+            - ./react:/usr/src
