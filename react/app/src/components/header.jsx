@@ -4,6 +4,8 @@ import Icon from '../static/img/RasScreenIcon/logo_R.jpg';
 import Image from'react-image-resizer';
 import {Grid, Box} from '@material-ui/core/';
 import MenuIcon from '@material-ui/icons/Menu';
+import {AppBar, Typography, Drawer, Button, Toolbar, IconButton, List,ListItem, Divider, ListItemIcon, ListItemText} from '@material-ui/core';
+
 
 export default function Header(){
     const style = {
@@ -12,21 +14,19 @@ export default function Header(){
         },
       };
     return(
-        <div className="header">
-            <Grid container alignItems="center" justify="center">
+        <Grid container className="header"　alignItems="center" justify="center">
             <Grid item xs={1}>
                 <Image src={Icon} alt="Logo"
                 height={ 40 }
                 width={ 40 }
-                style={style.image}
+                style = {style.image}
                 />
             </Grid>
-            <Grid item xs={10}>
-            </Grid>
-            <Grid item xs={1}>
-                <MenuIcon />
+            <Grid item xs={11} >
+                <Button color="inherit" className="button">Dashbourd</Button>
+                <Button color="inherit">MAP</Button>
+                <Button color="inherit">LOGS</Button>
             </Grid>
         </Grid>
-        </div>
     )
 }
