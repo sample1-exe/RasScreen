@@ -7,7 +7,7 @@ import {Grid} from '@material-ui/core/';
 function App() {
   return (
     <React.Fragment>
-          <Header  />
+          <Header />
     </React.Fragment>
   );
 }

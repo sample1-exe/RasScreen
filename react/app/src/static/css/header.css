@@ -1,6 +1,10 @@
 .header {
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.19);
-    box-sizing: border-box;
     height: 50px;
+    display: flex;
+}
+
+.icon {
+    margin: auto;
 }
