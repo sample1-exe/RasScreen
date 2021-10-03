@@ -1,0 +1,225 @@
+
+
+/* HostList */
+
+.HostList {
+    position: absolute;
+    width: 351px;
+    height: 648px;
+    left: 50px;
+    top: 198px;
+}
+
+/* Rectangle 8 */
+.a{
+position: absolute;
+width: 269px;
+height: 506px;
+left: 91px;
+top: 302px;
+}
+
+
+/* 枠 */
+
+.HostList_frame {
+width: 100%;
+height: 500px;
+background: #FFFFFF;
+border-radius: 20px;
+}
+
+.HostList_text {
+    text-align: center;
+}
+
+/* インナー */
+.inner {
+position: absolute;
+width: 310px;
+height: 535.74px;
+left: 70px;
+top: 286.92px;
+
+border: 1px solid rgba(0, 0, 0, 0.5);
+box-sizing: border-box;
+border-radius: 25px;
+}
+
+/* HostList */
+
+.HostList2{
+    position: absolute;
+    width: 122px;
+    height: 42.24px;
+    left: 164px;
+    top: 220.23px;
+
+    font-family: ABeeZee;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 38px;
+
+    color: #000000;
+}
+
+
+/* 要素 */
+.youso {
+position: absolute;
+width: 909px;
+height: 609px;
+left: 481px;
+top: 237px;}
+
+
+
+/* 要素４ */
+.youso4 {
+position: absolute;
+width: 437px;
+height: 282px;
+left: 953px;
+top: 564px;
+
+background: #FFFFFF;
+border-radius: 25px;}
+
+
+/* 要素３ */
+.youso3{
+position: absolute;
+width: 437px;
+height: 282px;
+left: 481px;
+top: 564px;
+
+background: #FFFFFF;
+border-radius: 25px;
+}
+
+/* 要素２ */
+.youso2 {
+position: absolute;
+width: 437px;
+height: 282px;
+left: 953px;
+top: 237px;
+
+background: #FFFFFF;
+border-radius: 25px;}
+
+
+/* 要素１ */
+
+.youso1{
+position: absolute;
+width: 437px;
+height: 282px;
+left: 481px;
+top: 237px;
+
+background: #FFFFFF;
+border-radius: 25px;
+}
+
+/* ヘッダー */
+
+
+
+/* ヘッダー */
+
+
+
+/* Dashboard */
+
+
+
+
+
+/* rasscreen 1 */
+
+
+
+
+/* List */
+
+
+
+/* Group 1 */
+/*
+position: absolute;
+width: 891px;
+height: 640px;
+left: 486px;
+top: 224px*/
+
+
+
+/* Rectangle 7 */
+/*
+position: absolute;
+width: 891px;
+height: 640px;
+left: 486px;
+top: 224px;
+
+
+*/
+/* Label */
+.label {
+position: absolute;
+width: 349px;
+height: 40px;
+left: 506px;
+top: 178px;
+}
+
+
+/* Status： */
+.status {
+position: absolute;
+width: 97px;
+height: 28px;
+left: 506px;
+top: 186px;
+
+font-family: ABeeZee;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #000000;}
+
+
+
+/* status_color */
+
+.status_color {
+position: absolute;
+width: 40px;
+height: 40px;
+left: 603px;
+top: 178px;
+
+background: #00FF19;}
+
+
+/* HostName： */
+.HostName{
+position: absolute;
+width: 144px;
+height: 28px;
+left: 711px;
+top: 184px;
+
+font-family: ABeeZee;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #000000;
+}

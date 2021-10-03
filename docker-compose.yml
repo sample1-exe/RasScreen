@@ -7,8 +7,6 @@ services:
         ports: 
             - "3306:3306"
         container_name: RasScreen_db
-        volumes: 
-            - ./db/mysql-data:/var/lib/mysql
         environment: 
             MYSQL_ROOT_PASSWORD: RasScreen1!
             MYSQL_DATABASE: rasscreen
