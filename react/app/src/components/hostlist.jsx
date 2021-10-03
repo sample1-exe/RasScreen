@@ -1,10 +1,27 @@
 import React from 'react';
 import '../static/css/figma.css';
+import {Grid,Box,Button, List, ListItem} from '@material-ui/core/';
+export default function HostList(props) {
 
-export default function HostList() {
     return (
         <div className="HostList_frame">
-            unko
+            <Box
+                component="span"
+            >
+            <h2>
+                <div className="HostList_text">
+                    Host List
+                </div>
+            </h2>
+            </Box>
+            <Box>
+                <List compoent="nav">
+                    <ListItem>
+                        {props.name}
+                    </ListItem>
+                    
+                </List>
+            </Box>
         </div>
     )
 }

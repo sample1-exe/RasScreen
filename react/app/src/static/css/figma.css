@@ -23,10 +23,14 @@ top: 302px;
 /* 枠 */
 
 .HostList_frame {
-width: 351px;
-height: 648px;
+width: 100%;
+height: 500px;
 background: #FFFFFF;
 border-radius: 20px;
+}
+
+.HostList_text {
+    text-align: center;
 }
 
 /* インナー */
