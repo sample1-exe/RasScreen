@@ -6,7 +6,6 @@ import {Grid,Box,Button} from '@material-ui/core/';
 import RasTab from './components/tab';
 
 function App() {
-  const [hostList, setHostList] = useState([{name: ["test", "test2"]}])
   return (
     <React.Fragment>
           <Header />
@@ -16,13 +15,11 @@ function App() {
               <Box
                 m={2}
               >
-              {hostList.map((host) =>
-                <HostList 
-                  name={host.name}
-              />)}
+                <HostList />
               </Box>
             </Grid>
-            <Grid item xs={1}>
+            <Grid item xs={10}>
+              
             </Grid>
           </Grid>
     </React.Fragment>

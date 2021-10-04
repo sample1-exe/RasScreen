@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{useState} from 'react';
 import '../static/css/figma.css';
-import {Grid,Box,Button, List, ListItem} from '@material-ui/core/';
-export default function HostList(props) {
-
+import {Grid,Box,Button, List, ListItem, ListItemText} from '@material-ui/core/';
+export default function HostList() {
+    const [hostList, setHostList] = useState([{name: "text", status: "dead"},{name: "text2", status: "arrive"}])
+    
     return (
         <div className="HostList_frame">
             <Box
@@ -13,15 +14,20 @@ export default function HostList(props) {
                     Host List
                 </div>
             </h2>
+            
+            {hostList.map((host) =>
+                <HostList_item 
+                name={host.name}
+            />)}
             </Box>
-            <Box>
-                <List compoent="nav">
-                    <ListItem>
-                        {props.name}
-                    </ListItem>
-                    
-                </List>
-            </Box>
+        </div>
+    )
+}
+
+function HostList_item(props) {
+    return (
+        <div>
+            <p>{props.name}</p>
         </div>
     )
 }
