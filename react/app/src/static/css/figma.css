@@ -22,12 +22,7 @@ top: 302px;
 
 /* 枠 */
 
-.HostList_frame {
-width: 100%;
-height: 500px;
-background: #FFFFFF;
-border-radius: 20px;
-}
+
 
 .HostList_text {
     text-align: center;
@@ -66,13 +61,14 @@ border-radius: 25px;
 
 
 /* 要素 */
+/*
 .youso {
 position: absolute;
 width: 909px;
 height: 609px;
 left: 481px;
 top: 237px;}
-
+*/
 
 
 /* 要素４ */

@@ -1,0 +1,15 @@
+.HostList_frame {
+    width: 100%;
+    height: 500px;
+    background: #FFFFFF;
+    border-radius: 20px;
+}
+
+.youso{
+    position: absolute;
+    width: 437px;
+    height: 282px;
+    
+    background: #FFFFFF;
+    border-radius: 25px;
+}
