@@ -1,26 +1,33 @@
+import React, { useState, useEffect } from 'react'
 import './static/css/App.css';
 import Header from './components/header'; 
 import HostList from './components/hostlist';
-import React, { useState, useEffect } from 'react'
+import HostDetail from './components/hostDetail';
+
 import {Grid,Box,Button} from '@material-ui/core/';
-import RasTab from './components/tab';
 
 function App() {
+  // HostName
+  const [hostList, setHostList] = useState([{id: 1, name: "test"},{id: 2, name: "test2"}])
+
+  const []
+
+
   return (
     <React.Fragment>
           <Header />
-          <Grid container alignItems="center" justify="center"> 
+          <Grid container> 
 
-            <Grid item xs={2}>
-              <Box
-                m={2}
-              >
-                <HostList />
+            <Grid item lg={2} sm={4}>
+              <Box m={2}>
+                <HostList data={hostList} />
               </Box>
             </Grid>
-            <Grid item xs={10}>
-              
+
+            <Grid item lg={4}>
+              <HostDetail />
             </Grid>
+
           </Grid>
     </React.Fragment>
   );
