@@ -10,7 +10,13 @@ function App() {
   // HostName
   const [hostList, setHostList] = useState([{id: 1, name: "test"},{id: 2, name: "test2"}])
 
-  const []
+  const [selectList, setSelectList] = useState()
+
+  for(var key in hostList) {
+    if(hostList[key].id == 1){
+      console.log("Success", hostList[key])
+    }
+}
 
 
   return (
@@ -20,12 +26,18 @@ function App() {
 
             <Grid item lg={2} sm={4}>
               <Box m={2}>
-                <HostList data={hostList} />
+                <HostList 
+                  data={hostList}
+                  select={setSelectList}
+                />
+              
               </Box>
             </Grid>
 
             <Grid item lg={4}>
-              <HostDetail />
+              <HostDetail 
+                text={selectList}
+              />
             </Grid>
 
           </Grid>

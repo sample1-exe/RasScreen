@@ -3,6 +3,7 @@ import '../static/css/hostlist.css';
 import {Box, List, ListItem, ListItemText} from '@material-ui/core/';
 export default function HostList(props) {
     const hostList = props.data
+    const selectList = props.select
     return (
         <div className="HostList_frame">
             <h2>
