@@ -3,8 +3,8 @@ import '../static/css/header.css';
 import '../static/css/figma.css';
 import Icon from '../static/img/RasScreenIcon/logo_R.jpg';
 import Image from'react-image-resizer';
-import {Grid, Box} from '@material-ui/core/';
-import {AppBar, Typography, Drawer, Button, Toolbar, IconButton, List,ListItem, Divider, ListItemIcon, ListItemText} from '@material-ui/core/';
+import {Grid} from '@material-ui/core/';
+import {Button} from '@material-ui/core/';
 
 
 export default function Header(){

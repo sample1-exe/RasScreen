@@ -1,9 +1,14 @@
-import React,{useState} from 'react';
+import React from 'react';
 import '../static/css/hostlist.css';
-import {Box, List, ListItem, ListItemText} from '@material-ui/core/';
+import {List, ListItem, ListItemText} from '@material-ui/core/';
 export default function HostList(props) {
-    const hostList = props.data
-    const selectList = props.select
+    const hostList = props.data;
+
+    function handlerClick(e, id) {
+        e.preventDefault();
+        props.select(id)
+    }
+
     return (
         <div className="HostList_frame">
             <h2>
@@ -14,17 +19,11 @@ export default function HostList(props) {
 
             <List>
             {hostList.map((host)=>
-                <HostList_item name={host.name}/>
+                <ListItem button>
+                    <ListItemText onClick={(e) => handlerClick(e, host.id)}>{host.name}</ListItemText>
+                </ListItem>
             )}
             </List>
         </div>
-    )
-}
-
-function HostList_item(props) {
-    return (
-        <ListItem button>
-                    <ListItemText>{props.name}</ListItemText>
-        </ListItem>
     )
 }

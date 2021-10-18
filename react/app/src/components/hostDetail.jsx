@@ -1,12 +1,12 @@
-import {Box,Button} from '@material-ui/core/';
+import {Box} from '@material-ui/core/';
 import '../static/css/hostlist.css';
 
 export default function HostDetail(props) {
-    const test = props.text
     return (
         <span>
             <Box className="youso">
-                {test}
+                <p>{props.text}</p>
+                wowowowowowowowow
             </Box>
         </span>
     )
