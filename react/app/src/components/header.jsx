@@ -2,7 +2,6 @@ import React from 'react';
 import '../static/css/header.css';
 import '../static/css/figma.css';
 import Icon from '../static/img/RasScreenIcon/logo_R.jpg';
-import Image from'react-image-resizer';
 import {Grid} from '@material-ui/core/';
 import {Button} from '@material-ui/core/';
 
@@ -16,11 +15,7 @@ export default function Header(){
     return(
         <Grid container className="header"　alignItems="center" justify="center">
             <Grid item xs={1}>
-                <Image src={Icon} alt="Logo"
-                height={ 40 }
-                width={ 40 }
-                style = {style.image}
-                />
+                <img src={Icon} alt="Logo" height="40" width="40" style={style.image} />
             </Grid>
             <Grid item xs={11} >
                 <Button color="inherit">Dashbourd</Button>

@@ -6,7 +6,8 @@ export default function HostList(props) {
 
     function handlerClick(e, id) {
         e.preventDefault();
-        props.select(id)
+        props.select(id);
+        return null;
     }
 
     return (
@@ -19,7 +20,7 @@ export default function HostList(props) {
 
             <List>
             {hostList.map((host)=>
-                <ListItem button>
+                <ListItem button key={host.id}>
                     <ListItemText onClick={(e) => handlerClick(e, host.id)}>{host.name}</ListItemText>
                 </ListItem>
             )}

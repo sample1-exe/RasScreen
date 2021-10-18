@@ -3,16 +3,16 @@ import './static/css/App.css';
 import Header from './components/header'; 
 import HostList from './components/hostlist';
 import HostDetail from './components/hostDetail';
-import {Grid,Box} from '@material-ui/core/';
+import {Grid,Box, Paper} from '@material-ui/core/';
 import { makeStyles } from "@material-ui/styles";
 
 const useStyle = makeStyles ({
   grid: {
+    mt: "3"
   },
   item: {
-    padding: '10px',
     border: '1px solid lightblue',
-},
+  },
 })
 
 
@@ -29,38 +29,29 @@ function App() {
   return (
     <React.Fragment>
           <Header />
-          <Grid container> 
-
-            <Grid item lg={2} md={4}>
-              <Box m={2}>
+          <Box mt={4}>
+            <Grid container> 
+              <Grid item lg={2} sm={3} xs={5}>
                 <HostList 
                   data={hostList}
                   select={setSelectList}
                 />
-              
-              </Box>
-            </Grid>
+              </Grid>
 
-            <Grid item lg={10} md={8}>
+              <Grid item lg={10} sm={9} xs={7}>
+                <Box m={2}>
                 <Grid container>
-                  <Grid item md={6} sm={12} className={classes.grid}>
-                    <HostDetail 
-                      text={selectList}
-                    />
-                  </Grid>
-                  <Grid item md={6} sm={12} className={classes.grid}>
-                    <HostDetail 
-                      text={selectList}
-                    />
-                  </Grid>
+                  <HostDetail 
+                    text={selectList}
+                  />
+                  <HostDetail 
+                    text={selectList}
+                  />
                 </Grid>
+                </Box>
+              </Grid>
             </Grid>
-            <Grid container>
-          <Grid item sm={4} md={8} className={classes.item}>Home</Grid>
-          <Grid item sm={4} md={2} className={classes.item}>About</Grid>
-          <Grid item sm={4} md={2} className={classes.item}>Contact</Grid>
-          </Grid>
-          </Grid>
+          </Box>
           
     </React.Fragment>
   );

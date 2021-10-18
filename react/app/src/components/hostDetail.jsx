@@ -1,13 +1,24 @@
-import {Box} from '@material-ui/core/';
+import {Box, Grid} from '@material-ui/core/';
 import '../static/css/hostlist.css';
+import { makeStyles } from "@material-ui/styles";
+
+
+const useStyle = makeStyles ({
+    grid: {
+    },
+    item: {
+      border: '1px solid lightblue',
+  },
+})
 
 export default function HostDetail(props) {
+    const classes = useStyle();
+
     return (
-        <span>
-            <Box className="youso">
+        <Grid item md={6} xs={12} className={classes.item}>
+            <div className="youso">
                 <p>{props.text}</p>
-                wowowowowowowowow
-            </Box>
-        </span>
+            </div>
+        </Grid>
     )
 }
