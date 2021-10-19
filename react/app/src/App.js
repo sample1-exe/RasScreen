@@ -4,8 +4,7 @@ import Header from './components/header';
 import HostList from './components/hostlist';
 import HostDetail from './components/hostDetail';
 import {Grid,Box, Paper} from '@material-ui/core/';
-import { makeStyles } from "@material-ui/styles";
-
+import Tachometer from './components/tachometer';
 
 function App() {
   // HostName
@@ -13,6 +12,8 @@ function App() {
 
   // 選択したList
   const [selectList, setSelectList] = useState()
+
+  const [TachoMeter, setTachoMeter] = useState()
 
   return (
     <React.Fragment>
@@ -34,7 +35,6 @@ function App() {
                   <HostDetail 
                     text={selectList}
                   />
-                  
                 </Grid>
               </Grid>
             </Grid>
