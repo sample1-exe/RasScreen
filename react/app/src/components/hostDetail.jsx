@@ -7,7 +7,7 @@ const useStyle = makeStyles ({
     grid: {
     },
     item: {
-      border: '1px solid lightblue',
+      /*border: '1px solid lightblue',*/
   },
 })
 
