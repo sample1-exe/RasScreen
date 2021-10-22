@@ -12,10 +12,8 @@ export default function HostList(props) {
 
     return (
         <div className="HostList_frame">
-            <h2>
-                <div className="HostList_text">
-                    Host List
-                </div>
+            <h2 className="HostList_text">
+                Host List
             </h2>
 
             <List>
