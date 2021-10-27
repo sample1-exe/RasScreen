@@ -42,13 +42,15 @@ func main() {
 	id = int(Find.ID)
 
 	db.AutoMigrate(&Monitor{})
-	var data = Monitor{
-		HostID: id,
-		Ping:   ping(),
-		CPU:    cpu(),
-		RAM:    ram(),
+	for range time.Tick(1 * time.Second) {
+		var data = Monitor{
+			HostID: id,
+			Ping:   ping(),
+			CPU:    cpu(),
+			RAM:    ram(),
+		}
+		db.Create(&data)
 	}
-	db.Create(&data)
 }
 
 func Hostname() (hostname string) {
