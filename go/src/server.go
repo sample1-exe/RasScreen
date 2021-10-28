@@ -1,8 +1,6 @@
 package main
 
 import (
-	//"math/rand" rand.Intn(99)
-
 	"fmt"
 	"os/exec"
 	"strconv"
@@ -66,7 +64,6 @@ func Hostname() (hostname string) {
 func MyData() {
 	db := connection()
 	//テーブルの生成（あるときはパス）
-	//db.AutoMigrate(&testtablefinal{})
 	db.AutoMigrate(&HostList{})
 	var Find = HostList{}
 	if err := db.Where("host_name = ?", Hostname()).First(&Find).Error; err != nil {
@@ -95,8 +92,6 @@ func cpu() (cpu int) {
 	if err != nil {
 		fmt.Println(err)
 	}
-
-	// 実行したコマンドの結果を出力
 	tmp = strings.TrimSpace(string(out))
 	cpu, _ = strconv.Atoi(tmp)
 
@@ -134,7 +129,6 @@ func ping() (ping float64) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	//fmt.Printf("result: %s ms", string(out))
 	tmp = strings.TrimSpace(string(out))
 	ping, _ = strconv.ParseFloat(tmp, 64)
 
