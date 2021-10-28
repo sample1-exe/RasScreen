@@ -12,22 +12,16 @@ import (
 )
 
 type HostList struct {
-	ID        uint `gorm:"primary_key"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt *time.Time
-	HostName  string
+	gorm.Model
+	HostName string
 }
 
 type Monitor struct {
-	ID        uint `gorm:"primary_key"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt *time.Time
-	HostID    int
-	Ping      float64
-	CPU       int
-	RAM       int
+	gorm.Model
+	HostID int
+	Ping   float64
+	CPU    int
+	RAM    int
 }
 
 func main() {
