@@ -30,19 +30,24 @@ func main() {
 	tmp := HostList{}
 	db.Where("host_name = ?", Hostname()).First(&tmp)
 	host_id := strconv.Itoa(int(tmp.ID))
-	url_one := "/one/" + host_id
+	url_one := "/select/hoststatus/one/" + host_id
 	Find_one := []Monitor{}
 	tmp_last := Monitor{}
 	db.Last(&tmp_last)
 	id := int(tmp_last.ID)
 
-	db.Where("id = ?", id).Find(&Find_one)
-	fmt.Println(Find_one)
+	host := []HostList{}
+	db.Find(&host)
 
-	url_some := "/some/" + host_id
+	db.Where("id = ?", id).Find(&Find_one)
+
+	url_some := "/select/hoststatus/some/" + host_id
 	Find_some := []Monitor{}
 	db.Order("id desc").Limit(5).Find(&Find_some)
 
+	http.HandleFunc("/select/hostlist", func(w http.ResponseWriter, r *http.Request) {
+		json.NewEncoder(w).Encode(host)
+	})
 	http.HandleFunc(url_one, func(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(Find_one)
 	})
