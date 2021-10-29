@@ -1,27 +1,28 @@
 import React from 'react';
-import '../static/css/figma.css';
-import {Grid,Box,Button, List, ListItem} from '@material-ui/core/';
+import '../static/css/hostlist.css';
+import {List, ListItem, ListItemText} from '@material-ui/core/';
 export default function HostList(props) {
+    const hostList = props.data;
+
+    function handlerClick(e, id) {
+        e.preventDefault();
+        props.select(id);
+        return null;
+    }
 
     return (
         <div className="HostList_frame">
-            <Box
-                component="span"
-            >
-            <h2>
-                <div className="HostList_text">
-                    Host List
-                </div>
+            <h2 className="HostList_text">
+                Host List
             </h2>
-            </Box>
-            <Box>
-                <List compoent="nav">
-                    <ListItem>
-                        {props.name}
-                    </ListItem>
-                    
-                </List>
-            </Box>
+
+            <List>
+            {hostList.map((host)=>
+                <ListItem button key={host.id}>
+                    <ListItemText onClick={(e) => handlerClick(e, host.id)}>{host.name}</ListItemText>
+                </ListItem>
+            )}
+            </List>
         </div>
     )
 }

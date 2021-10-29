@@ -2,9 +2,11 @@
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.19);
     height: 50px;
-    display: flex;
 }
 
 .icon {
-    margin: auto;
+    margin-left: 4px;
+    margin-top: 3px;
 }
+
+

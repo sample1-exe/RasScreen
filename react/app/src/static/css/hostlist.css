@@ -1,0 +1,21 @@
+.HostList_frame {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 500px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.19);
+}
+
+.youso{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 500px;
+    border: 1px solid rgba(0, 0, 0, 0.19);
+    
+    background: #FFFFFF;
+    border-radius: 25px;
+}
+
