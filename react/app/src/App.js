@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import './static/css/App.css';
 import Header from './components/header'; 
 import HostList from './components/hostlist';
@@ -14,6 +15,12 @@ function App() {
   const [selectList, setSelectList] = useState()
 
   const [TachoMeter, setTachoMeter] = useState()
+
+  useEffect(() => {
+    axios.get('http://192.168.1.10:8080/select')
+    .then(res => {
+    })
+  }, [])
 
   return (
     <React.Fragment>
@@ -43,5 +50,7 @@ function App() {
     </React.Fragment>
   );
 }
+
+
 
 export default App;
