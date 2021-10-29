@@ -26,23 +26,28 @@ type Monitor struct {
 }
 
 func main() {
-	var id int
-	var host_id string
-
 	db := connection()
 	tmp := HostList{}
 	db.Where("host_name = ?", Hostname()).First(&tmp)
-	host_id = strconv.Itoa(int(tmp.ID))
-	url := "/one/" + host_id
+	host_id := strconv.Itoa(int(tmp.ID))
+	url_one := "/one/" + host_id
+	Find_one := []Monitor{}
+	tmp_last := Monitor{}
+	db.Last(&tmp_last)
+	id := int(tmp_last.ID)
 
-	Find := []Monitor{}
-	db.Last(&tmp)
-	id = int(tmp.ID)
+	db.Where("id = ?", id).Find(&Find_one)
+	fmt.Println(Find_one)
 
-	db.Where("id = ?", id).Find(&Find)
-	fmt.Println(Find)
-	http.HandleFunc(url, func(w http.ResponseWriter, r *http.Request) {
-		json.NewEncoder(w).Encode(Find)
+	url_some := "/some/" + host_id
+	Find_some := []Monitor{}
+	db.Order("id desc").Limit(5).Find(&Find_some)
+
+	http.HandleFunc(url_one, func(w http.ResponseWriter, r *http.Request) {
+		json.NewEncoder(w).Encode(Find_one)
+	})
+	http.HandleFunc(url_some, func(w http.ResponseWriter, r *http.Request) {
+		json.NewEncoder(w).Encode(Find_some)
 	})
 	http.ListenAndServe(":8080", nil)
 }
