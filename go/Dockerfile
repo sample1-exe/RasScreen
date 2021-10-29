@@ -1,5 +1,5 @@
 FROM golang:latest
 
-ADD ./src /go/src
+ADD ./server /go/src
 
-WORKDIR /go/src/src
+WORKDIR /go/src/server

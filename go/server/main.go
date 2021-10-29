@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
 	"os/exec"
 	"strconv"
 	"strings"
@@ -27,9 +28,11 @@ type Monitor struct {
 
 func main() {
 	db := connection()
+	dbInit()
 	tmp := HostList{}
 	db.Where("host_name = ?", Hostname()).First(&tmp)
 	host_id := strconv.Itoa(int(tmp.ID))
+	fmt.Println(tmp)
 	url_one := "/select/hoststatus/one/" + host_id
 	Find_one := []Monitor{}
 	tmp_last := Monitor{}
@@ -46,10 +49,18 @@ func main() {
 	db.Order("id desc").Limit(5).Find(&Find_some)
 
 	http.HandleFunc("/select/hostlist", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Headers", "*")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
 		json.NewEncoder(w).Encode(host)
 	})
 	http.HandleFunc(url_one, func(w http.ResponseWriter, r *http.Request) {
-		json.NewEncoder(w).Encode(Find_one)
+		fmt.Fprint(w, "Hello")
+		/*
+			w.Header().Set("Access-Control-Allow-Headers", "*")
+			w.Header().Set("Access-Control-Allow-Origin", "*")
+			w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+			json.NewEncoder(w).Encode(Find_one)*/
 	})
 	http.HandleFunc(url_some, func(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(Find_some)
@@ -58,12 +69,10 @@ func main() {
 }
 
 func connection() *gorm.DB {
-	dsn := "testuser1:P@ssw0rd@tcp(127.0.0.1:3306)/rassc?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "tmcit:tmcit1!@tcp(RasScreen_db:3306)/rasscreen?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
-		//fmt.Println(err) //エラー発生時
-		fmt.Println("aaa")
-		panic(err.Error())
+		fmt.Fprintln(os.Stderr, err)
 	}
 
 	return db
@@ -77,4 +86,13 @@ func Hostname() (hostname string) {
 	hostname = strings.TrimSpace(string(out))
 
 	return
+}
+
+func dbInit() {
+	db := connection()
+	db.AutoMigrate(
+		&HostList{},
+		&Monitor{},
+	)
+
 }

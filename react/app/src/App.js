@@ -9,27 +9,30 @@ import Tachometer from './components/tachometer';
 
 function App() {
   // HostName
-  const [hostList, setHostList] = useState([{id: 1, name: "test"},{id: 2, name: "test2"}])
-
+  // const [hostList, setHostList] = useState([{id: 1, name: "test"},{id: 2, name: "test2"}])
+  const [hostList, setHostList] = useState([])
   // 選択したList
   const [selectList, setSelectList] = useState();
 
   const [TachoMeter, setTachoMeter] = useState();
 
-  const [test, setTest] = useState(0);
+  const [test, setTest] = useState([]);
+  
+  
+  useEffect(() => {
+    axios.get('http://192.168.56.20:8080/select/hostlist')
+    .then(res => {
+      setHostList(res.data)
+      console.log(res.data)
+    })
+  }, []);
 
-const log = function(){
-  const date1 = new Date();
-  const date2 = date1.getSeconds() + "秒"
-  setTest(date2)
-};
+  
 
-setInterval(log, 1000);
 
   return (
     <React.Fragment>
           <Header />
-          {test}
           <Box mt={4}>
             <Grid container> 
               <Grid item lg={2} sm={3} xs={5}>
@@ -55,7 +58,6 @@ setInterval(log, 1000);
     </React.Fragment>
   );
 }
-
 
 
 export default App;
