@@ -8,11 +8,10 @@ services:
             - "3306:3306"
         container_name: RasScreen_db
         environment: 
-            MYSQL_ROOT_PASSWORD: RasScreen1!
+            MYSQL_ROOT_PASSWORD: P@ssw0rd
             MYSQL_DATABASE: rasscreen
-            MYSQL_USER: tmcit
-            MYSQL_PASSWORD: tmcit1!
-        user: 1000:1000
+            MYSQL_USER: user
+            MYSQL_PASSWORD: P@ssw0rd
 
     rasscreen_golang:
         build: ./go
@@ -25,7 +24,9 @@ services:
             - rasscreen_react
         volumes:
             - ./go:/go/src
-            
+        environment:
+            - "GOPATH=/go/src/server"
+
     rasscreen_react:
         build: ./react
         tty: true
